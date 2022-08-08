@@ -119,9 +119,11 @@ const reset = () => {
               <input
                 ref="billInputEl"
                 v-model="bill"
-                class="billInput bg-gray-200 "
+                class="billInput my-input bg-gray-200 focus:ring-[#26C2AE]"
                 step="0.01"
                 type="number"
+                focus:outline-0
+                focus:ring-1 focus:ring-offset-2
                 autofocus
                 px-4
                 py-2
@@ -193,7 +195,7 @@ const reset = () => {
                               Enter a custom tip %
                             </h3>
                             <div class="mt-2">
-                              <input ref="customTipInputEl" v-model="customTip" text-right rounded-md w-full class="bg-[#F3F9FA] text-black focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="1">
+                              <input ref="customTipInputEl" v-model="customTip" text-right rounded-md w-full class="bg-[#F3F9FA] text-black focus:outline-0   focus:ring-[#26C2AE]" py-2 px-4 type="number" step="1">
                             </div>
                           </div>
                         </div>
@@ -218,7 +220,10 @@ const reset = () => {
               Number of People
             </p>
             <div mb-6 flex justify-between>
-              <input v-model="numDiners" relative text-right rounded-md w-full class="dinerInput bg-gray-200 focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number">
+              <input
+                v-model="numDiners" relative text-right rounded-md w-full class="dinerInput bg-gray-200 focus:ring-[#26C2AE]" focus:outline-0
+                focus:ring-1 focus:ring-offset-2 py-2 px-4 type="number"
+              >
               <div
                 absolute pl-2 pt-3 z-10 class="text-[#9EBBBD];"
               >
