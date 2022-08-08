@@ -1,10 +1,4 @@
 <script setup>
-const { x, y } = useWindowScroll()
-onMounted(() => {
-  x.value = 0
-  y.value = 0
-})
-
 const isCustomModalOpen = ref(false)
 
 const bill = ref(null)
@@ -92,6 +86,11 @@ const submitCustomTip = (event) => {
   customTip.value = null
 }
 
+const cancelCustomTip = () => {
+  isCustomModalOpen.value = !isCustomModalOpen.value
+  customTip.value = null
+}
+
 const reset = () => {
   billInputEl.value.focus()
   bill.value = null
@@ -116,7 +115,20 @@ const reset = () => {
               Bill
             </p>
             <div mb-6 flex justify-between>
-              <input ref="billInputEl" v-model="bill" relative text-right rounded-md w-full class="billInput bg-gray-200 focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="0.01" autofocus>
+              <!-- bill input -->
+              <input
+                ref="billInputEl"
+                v-model="bill"
+                class="billInput bg-gray-200 "
+                step="0.01"
+                type="number"
+                autofocus
+                px-4
+                py-2
+                rounded-md
+                text-right
+                w-full
+              >
               <p
                 absolute pl-2 pt-2 z-10 class="text-[#9EBBBD];"
               >
@@ -181,7 +193,7 @@ const reset = () => {
                               Enter a custom tip %
                             </h3>
                             <div class="mt-2">
-                              <input ref="customTipInputEl" v-model="customTip" text-right rounded-md w-full class="bg-[#F3F9FA] focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="1">
+                              <input ref="customTipInputEl" v-model="customTip" text-right rounded-md w-full class="bg-[#F3F9FA] text-black focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="1">
                             </div>
                           </div>
                         </div>
@@ -189,7 +201,7 @@ const reset = () => {
                           <button class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm  px-4 py-2 bg-[#26C2AE] text-base font-medium text-white hover:bg-[#2fdac4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#26C2AE] sm:ml-3 sm:w-auto sm:text-sm" @click="submitCustomTip($event)">
                             Submit
                           </button>
-                          <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" @click="isCustomModalOpen = !isCustomModalOpen">
+                          <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" @click="cancelCustomTip">
                             Cancel
                           </button>
                         </div>
