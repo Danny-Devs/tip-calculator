@@ -101,7 +101,7 @@ const reset = () => {
 </script>
 
 <template>
-  <main container px-4 sm:px-8 lg:px-36 mx-auto min-h-screen mt-4 dark:text-cyan-300>
+  <main class="bg-[#892983]" container px-4 sm:px-8 lg:px-36 mx-auto min-h-screen mt-4 dark:text-cyan-300>
     <!-- content -->
 
     <!-- lab demo -->
