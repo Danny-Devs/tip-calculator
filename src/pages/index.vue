@@ -268,8 +268,6 @@ const reset = () => {
     </div>
     <!-- lab demo -->
 
-    <Lab009 container />
-
     <!-- spacer for mobile footer -->
     <div py-12 />
     <!-- spacer for mobile footer -->
