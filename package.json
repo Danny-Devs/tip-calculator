@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "vite-ssg build",
     "dev": "vite --port 3333 --open",
